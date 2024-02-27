@@ -1,0 +1,38 @@
+Imports System
+Imports System.Numerics
+
+Module Program
+
+Sub Deposito()
+    Dim interes As Double
+    Dim DepMensual As Double
+    Dim Años As Double
+    Dim InvAnual As Double
+
+    Console.WriteLine("Ingrese el monto del deposito mensual: ")
+    DepMensual = Console.ReadLine()
+
+    interes = 0.15
+
+    Console.WriteLine("Ingrese el número de años: ")
+    Años = Console.ReadLine()
+
+
+    If Años <= 0 Then
+        Console.WriteLine("El número de años tiene que ser mayor a cero")
+        Exit Sub
+    End If
+
+    For i As Integer = 1 To Años
+        Dim InteresAnual As Double
+        InteresAnual = (InvAnual + DepMensual * 12) * interes
+        InvAnual = InvAnual + DepMensual * 12 + InteresAnual
+        Console.WriteLine("La inversión total para el año " & i & ": $" & InvAnual)
+    Next
+
+End Sub
+
+    Sub Main(args As String())
+        Deposito()
+    End Sub
+End Module
